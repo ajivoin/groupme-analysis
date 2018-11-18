@@ -1,25 +1,100 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+    <title>GroupMe Analysis</title>
+    <meta name="description" content="Data I/O 2018">
+    <meta name="author" content="To be determined">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Data I/O 2018</title>
-  <meta name="description" content="Data I/O 2018">
-  <meta name="author" content="To be determined">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-  <!--link rel="stylesheet" href="css/styles.css?v=1.0"-->
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1 id="conHeader">Upload conversation.json here (group members)</h1>
-  <input type="file" id="selectConversation" value="Import" /><br />
-  <button id="importConversation">Import</button>
-  <h1 id="mesHeader">Upload message.json here (chat history)</h1>
-  <input type="file" id="selectMessage" value="Import" /><br />
-  <button id="importMessage">Import</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <h1>GroupMe Analysis<span id="groupNameLabel"><span></h1>
+    <p id="helpText">To analyze your GroupMe data, export your data from your GroupMe settings in the web browser.
+        <br/> After doing this, unzip it, open a conversation, then upload its conversation.json and message.json here.
+    </p>
+    <h3 id="conHeader">Upload conversation.json here</h3>
+    <input type="file" id="selectConversation" value="Import" /><br />
+    <button id="importConversation">Import</button>
+    <h3 id="mesHeader">Upload message.json here</h3>
+    <input type="file" id="selectMessage" value="Import" /><br />
+    <button id="importMessage">Import</button>
 
-  <script src="index.js"></script>
+    <div id="LOADING" style="display: none">
+        <h1>Processing...</h1>
+    </div>
+
+    <script src="index.js"></script>
+    <div id="chartSection" style="display: none">
+        <br />
+
+        <div class="row info-row">
+            <div class="col-6 col-md-4 cap-contain">
+                <span class="left-caption">
+                    <img id="likesAvatar" class="avatar" src="avatar.jpeg" />
+                    <br />Everybody just seems to love <b id="likesLabel">Name</b>!
+                </span>
+            </div>
+            <div class="col-12 col-md-8 chart"><canvas id="likesChart"></canvas></div>
+        </div>
+
+        <div class="row info-row">
+            <div class="col-12 col-md-8 chart"><canvas id="msgChart"></canvas></div>
+            <div class="col-6 col-md-4 cap-contain">
+                <span class="right-caption">
+                    <img id="msgAvatar" class="avatar" src="avatar.jpeg" />
+                    <br /><b id="msgLabel">Alexander Shearer</b> sure does talk a lot.
+                </span>
+            </div>
+        </div>
+
+        <div class="info-row-small">
+                <div class="cap-contain-small">
+                    <span class="center-caption">
+                        <h2><span id="mentionsLabel">Name</span> has the most mentions, with a total of <span id="mentionsCount">48</span>
+                            mentions</h2>
+                    </span>
+    
+                </div>
+            </div>
+
+        <div class="row info-row">
+            <div class="col-12 col-md-8 chart"><canvas id="weekChart"></canvas></div>
+            <div class="col-6 col-md-4 cap-contain">
+                <span class="right-caption">
+                    <h3>Activity Heatmap (Weekly)</h3>
+                </span>
+            </div>
+        </div>
+
+        <div class="row info-row">
+                <div class="col-6 col-md-4 cap-contain">
+                    <span class="left-caption">
+                        <h3>Activity Heatmap (Hourly)</h3>
+                    </span>
+                </div>
+                <div class="col-12 col-md-8 chart"><canvas id="hourChart"></canvas></div>
+                
+            </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
