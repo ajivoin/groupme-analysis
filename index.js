@@ -85,6 +85,7 @@ function idToUser(id) {
 }
 
 function setCharts() {
+  document.getElementById('chartSection').style = 'display: block';
   // we need to process data here
   document.getElementById('LOADING').style = 'display: none';
   addMissingMembers();
@@ -266,7 +267,6 @@ function setCharts() {
       }
   });
 
-  document.getElementById('chartSection').style = 'display: block';
 }
 
 function addMissingMembers() {
