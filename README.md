@@ -2,7 +2,7 @@
 We wanted to bring data visualization to everyday social media users, not just people who know how to use visualization tools.  
 So we did.
 
-This project came in first at DATA I/O 2018 in the Data Visualization category.
+We came in **first place** at DATA I/O 2018 in the data visualization category.
 
 # Team Day-tuh
 ### [**Alex Shearer**](https://github.com/sheareraws)
